@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .boxes {
+            background-color: blueviolet;
+        }
+    </style>
+    <title>Box</title>
+</head>
+<body>
+
+    <main>
+        <form id="box-form">
+            <label for="box-number">Number of Boxes: </label>
+            <input type="number" id="box-number" name="box-number" placeholder="Enter number of boxes....">
+            <button type="button" onclick="createBox()">Oke</button>
+        </form>
+    
+        <div id="box-result"></div>
+    </main>
+    
+<script>
+    const createBox = () => {
+
+        const boxNumberInputVal = document.getElementById("box-number").value;
+        const boxResult = document.getElementById("box-result")
+        const createdBoxes = document.getElementsByClassName("boxes");
+
+        // Delete all previous boxes
+        for (var i = 0; i < createdBoxes.length; i++) {
+            createdBoxes[i].innerHTML = ""
+        }
+
+        // Create boxes based on a number of box input
+        for (var i = 0; i < boxNumberInputVal; i++) {
+            const box = document.createElement('div');
+            box.innerHTML = `<h2 class="boxes"> box ${i + 1} </h2>`
+            boxResult.appendChild(box)
+        }
+    }
+</script>
+</body>
+</html>
